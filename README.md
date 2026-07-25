@@ -2,8 +2,9 @@
 interactive file listing utility 2
 
 # build
-cmake -B build
-cmake --build build
+cd build
+cmake .. -DCMAKE_GENERATOR=Ninja -DFTXUI_BUILD_MODULES=ON -B .
+ninja -j$(nproc)
 
 UI: ftxui 
 fswatch: for file updates https://github.com/emcrisostomo/fswatch
