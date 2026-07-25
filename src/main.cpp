@@ -1,12 +1,9 @@
-import ftxui;
- 
-using ftxui::App;
-using ftxui::Button;
-using ftxui::Component;
+import buttonComponent;
+import appComponent;
  
 int main() {
-  App app = App::TerminalOutput();
-  Component button = Button("Click me", app.ExitLoopClosure());
+  auto app = app_component();
+  auto button = button_component(app, "Sergey");
   app.Loop(button);
   return 0;
 }
