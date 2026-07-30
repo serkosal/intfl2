@@ -42,6 +42,7 @@ target_sources(intfl2
     FILE_SET cxx_modules TYPE CXX_MODULES FILES
       src/core/fileTree.cpp
       src/tui/renderer.cpp
+      src/tui/my_collapsible.cpp
 )
 target_link_libraries(intfl2
   PRIVATE ftxui::modules
