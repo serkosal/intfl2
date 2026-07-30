@@ -33,28 +33,16 @@ FetchContent_Declare(ftxui
 FetchContent_MakeAvailable(ftxui)
 
 # my modules
-add_library(app_component)
-target_sources(app_component
-  PUBLIC FILE_SET CXX_MODULES FILES
-    src/appComponent.cpp
-)
-target_link_libraries(app_component
-  PRIVATE ftxui::modules
-)
-
-add_library(button_component)
-target_sources(button_component
-  PUBLIC FILE_SET CXX_MODULES FILES
-    src/buttonComponent.cpp
-)
-target_link_libraries(button_component
-  PRIVATE ftxui::modules
-)
 
 # executable
 
 add_executable(intfl2 src/main.cpp)
+target_sources(intfl2 
+  PUBLIC 
+    FILE_SET cxx_modules TYPE CXX_MODULES FILES
+      src/core/fileTree.cpp
+      src/tui/renderer.cpp
+)
 target_link_libraries(intfl2
-  PRIVATE app_component
-  PRIVATE button_component
+  PRIVATE ftxui::modules
 )
